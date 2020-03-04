@@ -1,0 +1,48 @@
+package java.com.adobe.devcamp.dao;
+
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+
+
+import javax.sql.DataSource;
+import java.com.adobe.devcamp.model.Advertiser;
+import java.com.adobe.devcamp.model.Campaign;
+import java.com.adobe.devcamp.model.Publisher;
+import java.com.adobe.devcamp.model.User;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+
+public class UserDao {
+    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Connection connection;
+    private static final Map<Class, String> TABLES = new HashMap<>();
+    static{
+        TABLES.put(User.class, "users");
+        TABLES.put(Advertiser.class, "advertisers");
+        TABLES.put(Publisher.class, "publishers");
+        TABLES.put(Campaign.class, "campaigns");
+    }
+    public UserDao(DataSource dataSource) throws SQLException {
+        this.connection=dataSource.getConnection();
+    }
+
+    public Map<Integer, String> selectAll() throws SQLException {
+        Map<Integer, String> all = new HashMap<>();
+        final String query = "SELECT * FROM " + TABLES.get(User.class);
+        try {
+            final Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                int columnIndex;
+                all.put(resultSet.getInt(1),resultSet.getString(2));
+            }
+        }catch(SQLException ex){
+            logger.error("Query {} failed because {}", query, ex.getMessage());
+        }
+        return all;
+    }
+}
