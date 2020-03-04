@@ -1,0 +1,10 @@
+com\adobe\devcamp\model\User$Profile.class
+com\adobe\devcamp\model\Campaign$Target.class
+HelloWorld.class
+com\adobe\devcamp\dao\UserDao.class
+com\adobe\devcamp\model\Advertiser.class
+com\adobe\devcamp\model\Publisher.class
+com\adobe\devcamp\model\Campaign.class
+com\adobe\devcamp\model\Gender.class
+com\adobe\devcamp\model\User.class
+com\adobe\devcamp\model\Domain.class
