@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class UserDao {
 
-
     private final Logger logger = LoggerFactory.getLogger(UserDao.class);
     private final Connection connection;
     private static final Map<Class, String> TABLES = new HashMap<>();
