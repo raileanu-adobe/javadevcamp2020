@@ -44,7 +44,7 @@ public class UserDao {
             final Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                all.put(resultSet.getInt(1), resultSet.getString(2);
+                all.put(resultSet.getInt(1), resultSet.getString(2));
             }
         } catch(SQLException ex) {
             logger.error("Query {} failed because {}", query, ex.getMessage());
