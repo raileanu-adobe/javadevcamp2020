@@ -6,6 +6,7 @@ import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -15,6 +16,9 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+//peste dao vine layeru-ul de service -> cazurile de utilizare
+
+@Repository
 public class UserDao {
 
     private final Connection connection;
