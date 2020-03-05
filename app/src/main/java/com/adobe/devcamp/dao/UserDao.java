@@ -6,6 +6,7 @@ import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -15,6 +16,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class UserDao {
     //dao se conect la bd
 
@@ -23,6 +25,7 @@ public class UserDao {
 
 
     private static final Map<Class, String> TABLES = new HashMap<>();//nu vreau s-o updateze cineva din ext
+
     static {
         TABLES.put(User.class, "users");
         TABLES.put(Advertiser.class, "advertisers");
@@ -43,10 +46,10 @@ public class UserDao {
         try {
             final Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 all.put(resultSet.getInt(1), resultSet.getString(2));
             }
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             logger.error("Query {} failed because {}", query, ex.getMessage());
         }
 
