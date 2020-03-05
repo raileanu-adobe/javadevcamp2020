@@ -6,6 +6,7 @@ import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -15,6 +16,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class UserDao {
     private final Connection connection;
     private final Logger logger = LoggerFactory.getLogger(UserDao.class);
@@ -40,7 +42,7 @@ public class UserDao {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                all.put(resultSet.getInt(1), resultSet.getString(1));
+                all.put(resultSet.getInt(1), resultSet.getString(2));
             }
         } catch (SQLException ex) {
             logger.error("Query {} failed because {}", query, ex.getMessage());
