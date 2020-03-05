@@ -6,6 +6,7 @@ import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -15,10 +16,19 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * For operations in databases.
+ * Create - INSERT
+ * Read - SELECT
+ * Update - UPDATE
+ * Delete - DELETE
+ */
+//Spring uses inversion of control
+@Repository
 public class UserDao {
 
     private final Logger logger = LoggerFactory.getLogger(UserDao.class);
-    //aceeasi pentru orice instanta
+    //is it the same for any instance
     private static final Map<Class, String> TABLES = new HashMap<>();
     private final Connection connection;
 
@@ -30,7 +40,7 @@ public class UserDao {
     }
 
     public UserDao(DataSource dataSource) throws SQLException {
-        //ne ocupam local daca folosim try-catch
+        //we handle it locally if we use try-catch
         this.connection = dataSource.getConnection();
     }
 

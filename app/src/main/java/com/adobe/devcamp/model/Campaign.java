@@ -1,8 +1,5 @@
 package com.adobe.devcamp.model;
 
-import com.sun.tools.javac.jvm.Gen;
-
-import java.lang.annotation.Target;
 import java.util.List;
 import java.util.Objects;
 

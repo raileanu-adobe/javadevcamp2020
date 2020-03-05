@@ -34,7 +34,7 @@ create table if not exists publishers(
 ) ENGINE=INNODB;
 
 
-insert into users(id, json) --serializare
+insert into users(id, json) #serializare
 values
 (null, '{"firstName":"John","lastName":"Doe","email":"john.doe@adobe.com","profile":{"gender":"MALE","dateOfBirth":"1989-04-12","interests":["FASHION"]}}'),
 (null, '{"firstName":"Green","lastName":"Montgomery","email":"green.montgomery@adobe.com","profile":{"gender":"NA","dateOfBirth":"1991-07-04","interests":["PHOTOGRAPHY","DIY","TATTOOS"]}}'),
