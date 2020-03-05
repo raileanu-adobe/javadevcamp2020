@@ -6,6 +6,7 @@ import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 
 import javax.jws.soap.SOAPBinding;
@@ -17,9 +18,15 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Repository
 public class UserDao {
 
+    /*
+    Create - INSERT
+    Read - SELECT
+    Update - UPDATE
+    Delete - DELETE
+     */
     private final Connection connection;
     private static final Map<Class, String> TABLES = new HashMap<>();
     private static final Logger logger = LoggerFactory.getLogger(UserDao.class);
