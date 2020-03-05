@@ -6,6 +6,7 @@ import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 
 import javax.sql.DataSource;
@@ -16,7 +17,13 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository
 public class UserDAO {
+
+    /*
+    CRUD - CREATE, SELECT(read), UPDATE, DELETE
+     */
+
     private final Connection connection;
     private final Logger logger = LoggerFactory.getLogger(UserDAO.class);
     private static final Map<Class, String> TABLES = new HashMap<>();
