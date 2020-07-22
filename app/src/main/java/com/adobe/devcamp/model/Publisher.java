@@ -1,5 +1,8 @@
 package com.adobe.devcamp.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -10,8 +13,11 @@ public final class Publisher {
     private final Set<Domain> domains;
     private final List<Integer> users;
     private final List<Integer> advertisers;
-
-    public Publisher(String name, Set<Domain> domains, List<Integer> users, List<Integer> advertisers) {
+@JsonCreator
+    public Publisher(@JsonProperty(value = "name")String name,
+                     @JsonProperty(value = "domains")Set<Domain> domains,
+                     @JsonProperty(value = "users")List<Integer> users,
+                     @JsonProperty(value = "advertisers")List<Integer> advertisers) {
         this.name = name;
         this.domains = domains;
         this.users = users;
