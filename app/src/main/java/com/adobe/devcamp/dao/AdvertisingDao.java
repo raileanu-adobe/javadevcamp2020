@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class UserDao {
+public class AdvertisingDao<T> {
     /*
         Create - INSERT
         Read - SELECT
@@ -26,7 +26,7 @@ public class UserDao {
 
      */
 
-    private final Logger logger = LoggerFactory.getLogger(UserDao.class);
+    private final Logger logger = LoggerFactory.getLogger(AdvertisingDao.class);
     private final Connection connection;
 
     private static final Map<Class, String> TABLES = new HashMap<>();
@@ -37,14 +37,14 @@ public class UserDao {
         TABLES.put(Campaign.class, "campaigns");
     }
 
-    public UserDao(DataSource dataSource) throws SQLException {
+    public AdvertisingDao(DataSource dataSource) throws SQLException {
         this.connection = dataSource.getConnection();
     }
 
-    public Map<Integer, String> selectAll() {
+    public Map<Integer, String> selectAll(Class<T> clazz) {
         Map<Integer, String> all = new HashMap<>();
 
-        final String query = "SELECT * FROM " + TABLES.get(User.class);
+        final String query = "SELECT * FROM " + TABLES.get(clazz);
 
         try {
             final Statement statement = connection.createStatement();
@@ -53,9 +53,24 @@ public class UserDao {
                 all.put(resultSet.getInt(1), resultSet.getString(2));
             }
         } catch(SQLException ex) {
-            logger.error("Query {} failed because {}", query, ex.getMessage());
+            logger.error("Query {} failed because {}", query, ex.getMessage(), ex);
         }
 
         return all;
+    }
+
+    public String selectById(Class<T> clazz, int id) {
+        final String query = "SELECT json FROM " + TABLES.get(clazz) + " WHERE id = " + id;
+        try {
+            final Statement statement = connection.createStatement();
+            final ResultSet resultSet = statement.executeQuery(query);
+            if(resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            logger.error("Query {} failed.",  query, e);
+        }
+
+        return null;
     }
 }
