@@ -20,7 +20,7 @@
 
 package com.adobe.devcamp.service;
 
-import com.adobe.devcamp.dao.UserDao;
+import com.adobe.devcamp.dao.AdvertisingDao;
 import com.adobe.devcamp.model.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,31 +32,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class UserService {
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-    private final UserDao userDao;
+public class AdvertisingService<T> {
+    private static final Logger logger = LoggerFactory.getLogger(AdvertisingService.class);
+    private final AdvertisingDao<T> dao;
     private final ObjectMapper objectMapper;
 
-    public UserService(UserDao userDao, ObjectMapper objectMapper) {
-        this.userDao = userDao;
+    public AdvertisingService(AdvertisingDao dao, ObjectMapper objectMapper) {
+        this.dao = dao;
         this.objectMapper = objectMapper;
     }
 
-    //select users from db and convert
-    //Map<Integer, String> into Map<Integer, User>
-    public Map<Integer, User> selectAll(){
-        final Map<Integer, String> usersAsString = userDao.selectAll();
-        final Map<Integer, User> users = new HashMap<>();
+    //select any data type from db and convert
+    //Map<Integer, String> into Map<Integer, T>
+    public Map<Integer, T> selectAll(Class<T> clazz){
+        final Map<Integer, String> allAsString = dao.selectAll(clazz);
+        final Map<Integer, T> all = new HashMap<>();
 
-        for(Map.Entry<Integer, String> entry: usersAsString.entrySet()){
+        for(Map.Entry<Integer, String> entry: allAsString.entrySet()){
             try {
-                final User user = objectMapper.readValue(entry.getValue(), User.class);
-                users.put(entry.getKey(), user);
+                final T t = objectMapper.readValue(entry.getValue(), clazz);
+                all.put(entry.getKey(), t);
             } catch (JsonProcessingException e) {
                 logger.error("Object {} couldn't be deserialized", entry.getValue());
             }
         }
 
-        return users;
+        return all;
     }
 }
