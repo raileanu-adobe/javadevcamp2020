@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddaa65ab-f063-4b1e-bb78-ed31e654cd16" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/config/BeanConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/dao/AdvertisingDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/model/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/model/Publisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/service/AdvertisingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/model/Advertiser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/model/Advertiser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/model/Campaign.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/adobe/devcamp/model/Campaign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provisioning/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/provisioning/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <workItem from="1595417481277" duration="803000" />
       <workItem from="1595418330008" duration="1710000" />
       <workItem from="1595420087063" duration="555000" />
-      <workItem from="1595420690691" duration="8440000" />
+      <workItem from="1595420690691" duration="9281000" />
     </task>
     <servers />
   </component>
@@ -121,38 +120,38 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="343" y="310" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1595428201031" />
-    <state width="1051" height="337" key="GridCell.Tab.0.bottom" timestamp="1595428383212">
+    <state width="1051" height="287" key="GridCell.Tab.0.bottom" timestamp="1595434190860">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383212" />
-    <state width="1051" height="337" key="GridCell.Tab.0.center" timestamp="1595428383212">
+    <state width="1051" height="287" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1595434190860" />
+    <state width="1051" height="287" key="GridCell.Tab.0.center" timestamp="1595434190859">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383212" />
-    <state width="1051" height="337" key="GridCell.Tab.0.left" timestamp="1595428383211">
+    <state width="1051" height="287" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1595434190859" />
+    <state width="1051" height="287" key="GridCell.Tab.0.left" timestamp="1595434190859">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383211" />
-    <state width="1051" height="337" key="GridCell.Tab.0.right" timestamp="1595428383212">
+    <state width="1051" height="287" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1595434190859" />
+    <state width="1051" height="287" key="GridCell.Tab.0.right" timestamp="1595434190860">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383212" />
-    <state width="1051" height="337" key="GridCell.Tab.1.bottom" timestamp="1595428383213">
+    <state width="1051" height="287" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1595434190860" />
+    <state width="1051" height="287" key="GridCell.Tab.1.bottom" timestamp="1595430417455">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.1.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383213" />
-    <state width="1051" height="337" key="GridCell.Tab.1.center" timestamp="1595428383212">
+    <state width="1051" height="287" key="GridCell.Tab.1.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1595430417455" />
+    <state width="1051" height="287" key="GridCell.Tab.1.center" timestamp="1595430417455">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.1.center/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383212" />
-    <state width="1051" height="337" key="GridCell.Tab.1.left" timestamp="1595428383212">
+    <state width="1051" height="287" key="GridCell.Tab.1.center/70.27.1850.1053@70.27.1850.1053" timestamp="1595430417455" />
+    <state width="1051" height="287" key="GridCell.Tab.1.left" timestamp="1595430417454">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.1.left/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383212" />
-    <state width="1051" height="337" key="GridCell.Tab.1.right" timestamp="1595428383213">
+    <state width="1051" height="287" key="GridCell.Tab.1.left/70.27.1850.1053@70.27.1850.1053" timestamp="1595430417454" />
+    <state width="1051" height="287" key="GridCell.Tab.1.right" timestamp="1595430417455">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state width="1051" height="337" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1595428383213" />
+    <state width="1051" height="287" key="GridCell.Tab.1.right/70.27.1850.1053@70.27.1850.1053" timestamp="1595430417455" />
     <state x="195" y="212" width="924" height="691" key="Maven.ArtifactSearchDialog" timestamp="1595419959168">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
