@@ -58,4 +58,20 @@ public class AdvertisingDao<T> {
 
         return all;
     }
+
+    public String selectById(Class<T> clazz, int id) {
+        final String query =  "SELECT json FROM " + TABLES.get(clazz) + " WHERE id=" + id;
+
+        try {
+            final Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            if (result.next()) {
+                return result.getString(1);
+            }
+        } catch(SQLException ex) {
+            logger.error("Query {} failed because {}", query, ex.getMessage());
+        }
+
+        return null;
+    }
 }

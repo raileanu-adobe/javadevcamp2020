@@ -53,10 +53,22 @@ public class AdvertisingService<T> {
                 final T t = objectMapper.readValue(entry.getValue(), clazz);
                 all.put(entry.getKey(), t);
             } catch (JsonProcessingException e) {
-                logger.error("Object {} couldn't be deserialized", entry.getValue());
+                logger.error("Object {} couldn't be deserialized", entry.getValue(), e);
             }
         }
 
         return all;
     }
+
+    public T selectById(Class<T> clazz, int id) {
+        final String json = dao.selectById(clazz, id);
+        try{
+            return objectMapper.readValue(json, clazz);
+        }
+        catch (JsonProcessingException e ) {
+            logger.error("Object {} could not be deserialized", json);
+        }
+        return null;
+    }
 }
+

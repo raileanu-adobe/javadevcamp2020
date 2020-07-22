@@ -20,8 +20,10 @@
 
 package com.adobe.devcamp;
 
+import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import com.adobe.devcamp.service.AdvertisingService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -32,16 +34,29 @@ public class HelloWorld {
 
 
     private static AdvertisingService<User> userService;
+    private static AdvertisingService<Publisher> publisherService;
 
-    public HelloWorld(AdvertisingService userService) {
+    public HelloWorld(AdvertisingService userService, AdvertisingService publisherService, ObjectMapper objectMapper) {
         HelloWorld.userService = userService;
+        HelloWorld.objectMapper = objectMapper;
+        HelloWorld.publisherService = publisherService;
     }
 
-    public static void main(String[] args) {
+    private static ObjectMapper objectMapper;
+
+    public static void main(String[] args) throws Exception{
         SpringApplication.run(HelloWorld.class);
-        System.out.println("Hello World");
+        System.out.println("Select all users");
         final Map<Integer, User> users = userService.selectAll(User.class);
         users.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
+
+        System.out.println("\nSelect by Id");
+        User user = userService.selectById(User.class, 1);
+        System.out.println(objectMapper.writeValueAsString(user));
+
+        System.out.println("\nSelect all publishers");
+        final Map<Integer, Publisher> publishers = publisherService.selectAll(Publisher.class);
+        publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
     }
 
 
