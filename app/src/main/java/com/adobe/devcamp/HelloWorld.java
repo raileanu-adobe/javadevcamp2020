@@ -20,6 +20,8 @@
 
 package com.adobe.devcamp;
 
+import com.adobe.devcamp.model.Advertiser;
+import com.adobe.devcamp.model.Campaign;
 import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import com.adobe.devcamp.service.AdvertisingService;
@@ -37,11 +39,19 @@ public class HelloWorld {
 
     private static ObjectMapper objectMapper;
     private static AdvertisingService<Publisher> publisherService;
+    private static AdvertisingService<Advertiser> advertiserService;
+    private static AdvertisingService<Campaign> campaignService;
 
-    public HelloWorld(AdvertisingService<User> userService, AdvertisingService<Publisher> publisherService, ObjectMapper objectMapper) {
+    public HelloWorld(AdvertisingService<User> userService,
+                      AdvertisingService<Publisher> publisherService,
+                      AdvertisingService<Advertiser> advertiserService,
+                      AdvertisingService<Campaign> campaignService,
+                      ObjectMapper objectMapper) {
         HelloWorld.userService = userService;
-        HelloWorld.objectMapper = objectMapper;
         HelloWorld.publisherService = publisherService;
+        HelloWorld.advertiserService = advertiserService;
+        HelloWorld.campaignService = campaignService;
+        HelloWorld.objectMapper = objectMapper;
     }
 
 
@@ -59,8 +69,14 @@ public class HelloWorld {
         publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
 
         System.out.println("Advertisers:");
-        //final Map<Integer, Publisher> advertisers = publisherService.selectAll(Publisher.class);
-        //publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
+        final Map<Integer, Advertiser> advertisers = advertiserService.selectAll(Advertiser.class);
+        advertisers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
+
+        System.out.println("Campaigns:");
+        final Map<Integer, Campaign> campaigns = campaignService.selectAll(Campaign.class);
+        campaigns.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
+
+
 
 
     }

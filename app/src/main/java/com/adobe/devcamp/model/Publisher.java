@@ -16,7 +16,7 @@ public final class Publisher {
 
     @JsonCreator
     public Publisher(@JsonProperty(value = "name") String name,
-                     @JsonProperty(value = "domains") Set<Domain> domains,
+                     @JsonProperty(value= "domains") Set<Domain> domains,
                      @JsonProperty(value = "users") List<Integer> users,
                      @JsonProperty(value = "advertisers") List<Integer> advertisers) {
         this.name = name;

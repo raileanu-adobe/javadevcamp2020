@@ -1,3 +1,4 @@
+
 package com.adobe.devcamp.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
