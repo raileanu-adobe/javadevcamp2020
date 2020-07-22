@@ -1,5 +1,8 @@
 package com.adobe.devcamp.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +14,13 @@ public final class Campaign {
     private final Target target;
     private final Integer advertiserId;
 
-    public Campaign(String name, Long startTime, Long endTime, Target target, Integer advertiserId) {
+    @JsonCreator
+    public Campaign(
+            @JsonProperty(value="name") String name,
+            @JsonProperty(value="startTime") Long startTime,
+            @JsonProperty(value="endTime") Long endTime,
+            @JsonProperty(value="target") Target target,
+            @JsonProperty(value="advertiserId") Integer advertiserId) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
