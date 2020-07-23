@@ -13,8 +13,8 @@ public final class Advertiser {
 
     @JsonCreator
     public Advertiser(
-            @JsonProperty(value="name") String name,
-            @JsonProperty(value="publishers") List<Integer> publishers) {
+            @JsonProperty(value = "name") String name,
+            @JsonProperty(value = "publishers") List<Integer> publishers) {
         this.name = name;
         this.publishers = publishers;
     }

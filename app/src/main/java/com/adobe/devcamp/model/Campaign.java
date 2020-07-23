@@ -15,12 +15,11 @@ public final class Campaign {
     private final Integer advertiserId;
 
     @JsonCreator
-    public Campaign(
-            @JsonProperty(value="name") String name,
-            @JsonProperty(value="startTime") Long startTime,
-            @JsonProperty(value="endTime") Long endTime,
-            @JsonProperty(value="target") Target target,
-            @JsonProperty(value="advertiserId") Integer advertiserId) {
+    public Campaign(@JsonProperty(value = "name") String name,
+                    @JsonProperty(value = "startTime") Long startTime,
+                    @JsonProperty(value = "endTime") Long endTime,
+                    @JsonProperty(value = "target") Target target,
+                    @JsonProperty(value = "advertiserId") Integer advertiserId) {
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -82,7 +81,11 @@ public final class Campaign {
         private final short minAge;
         private final short maxAge;
 
-        public Target(Gender gender, List<Domain> interests, short minAge, short maxAge) {
+        @JsonCreator
+        public Target(@JsonProperty(value = "gender") Gender gender,
+                      @JsonProperty(value = "interests") List<Domain> interests,
+                      @JsonProperty(value = "minAge") short minAge,
+                      @JsonProperty(value = "maxAge") short maxAge) {
             this.gender = gender;
             this.interests = interests;
             this.minAge = minAge;

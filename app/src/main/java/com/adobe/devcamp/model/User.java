@@ -21,10 +21,10 @@ public final class User {
 
     @JsonCreator
     public User(
-            @JsonProperty(value="firstName") String firstName,
-            @JsonProperty(value="lastName") String lastName,
-            @JsonProperty(value="email") String email,
-            @JsonProperty(value="profile") Profile profile) {
+            @JsonProperty(value = "firstName") String firstName,
+            @JsonProperty(value = "lastName") String lastName,
+            @JsonProperty(value = "email") String email,
+            @JsonProperty(value = "profile") Profile profile) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
