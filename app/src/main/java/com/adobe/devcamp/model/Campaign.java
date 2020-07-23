@@ -79,8 +79,11 @@ public final class Campaign {
         private final List<Domain> interests;
         private final short minAge;
         private final short maxAge;
-
-        public Target(Gender gender, List<Domain> interests, short minAge, short maxAge) {
+        @JsonCreator
+        public Target(@JsonProperty(value = "gender")Gender gender,
+                      @JsonProperty(value = "interests")List<Domain> interests,
+                      @JsonProperty(value = "minAge")short minAge,
+                      @JsonProperty(value = "maxAge")short maxAge) {
             this.gender = gender;
             this.interests = interests;
             this.minAge = minAge;

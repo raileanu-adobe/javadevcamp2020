@@ -14,47 +14,9 @@ import java.util.Map;
 @SpringBootApplication
 public class HelloWorld {
 
-    private static AdvertisingService<User> userService;
-    private static AdvertisingService<Publisher> publisherService;
-    private static AdvertisingService<Advertiser> advertiserService;
-    private static AdvertisingService<Campaign> campaignService;
 
-    public HelloWorld(AdvertisingService userService,
-                      AdvertisingService publisherService,
-                      AdvertisingService advertiserService,
-                      AdvertisingService campaignService,
-                      ObjectMapper objectMapper) {
-        HelloWorld.userService = userService;
-        HelloWorld.publisherService = publisherService;
-        HelloWorld.advertiserService = advertiserService;
-        HelloWorld.campaignService = campaignService;
-        HelloWorld.objectMapper = objectMapper;
-    }
-
-    private static ObjectMapper objectMapper;
-
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
         SpringApplication.run(HelloWorld.class);
-        System.out.println("Select all users");
-        final Map<Integer, User> users = userService.selectAll(User.class);
-        users.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
-
-        System.out.println("\nSelect by Id");
-        User user = userService.selectById(User.class, 1);
-        System.out.println(objectMapper.writeValueAsString(user));
-
-        System.out.println("\nSelect all publishers");
-        final Map<Integer, Publisher> publishers = publisherService.selectAll(Publisher.class);
-        publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
-
-        System.out.println("\nSelect all advertisers");
-        final Map<Integer, Advertiser> advertisers = advertiserService.selectAll(Advertiser.class);
-        advertisers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
-
-        System.out.println("\nSelect all campaigns");
-        final Map<Integer, Campaign> campaigns = campaignService.selectAll(Campaign.class);
-        campaigns.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
     }
-
 
 }

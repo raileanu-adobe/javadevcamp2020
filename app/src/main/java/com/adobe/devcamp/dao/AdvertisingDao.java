@@ -71,6 +71,8 @@ public class AdvertisingDao<T> {
         } catch (SQLException e) {
             logger.error("Query {} failed because{} ", query, e.getMessage());
 
+        } catch(Exception ex) {
+            logger.error("An error ocurred");
         }
         return null;
     }
