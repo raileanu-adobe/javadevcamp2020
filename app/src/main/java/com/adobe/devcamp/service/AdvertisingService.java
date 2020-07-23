@@ -21,7 +21,6 @@
 package com.adobe.devcamp.service;
 
 import com.adobe.devcamp.dao.AdvertisingDao;
-import com.adobe.devcamp.model.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -65,7 +64,11 @@ public class AdvertisingService<T> {
         try {
             return objectMapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
-            logger.error("Object {} couldn't be deserialized", json);
+            logger.error("Object {} couldn't be deserialized", json, e);
+        }
+        catch (Exception ex) {
+            logger.error("An error ocurred", ex);
+            return null;
         }
         return null;
     }
