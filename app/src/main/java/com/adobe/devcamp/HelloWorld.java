@@ -20,6 +20,8 @@
 
 package com.adobe.devcamp;
 
+import com.adobe.devcamp.model.Advertiser;
+import com.adobe.devcamp.model.Campaign;
 import com.adobe.devcamp.model.Publisher;
 import com.adobe.devcamp.model.User;
 import com.adobe.devcamp.service.AdvertisingService;
@@ -35,13 +37,23 @@ public class HelloWorld {
 
     private static AdvertisingService<User> userService;
     private static AdvertisingService<Publisher> publisherService;
+    private static AdvertisingService<Campaign> campaignService;
+    private static AdvertisingService<Advertiser> advertiserService;
+
+
 
     private static ObjectMapper objectMapper;
 
-    public HelloWorld(AdvertisingService<User> userService, AdvertisingService<Publisher> publisherService,
+    public HelloWorld(AdvertisingService<User> userService,
+                      AdvertisingService<Publisher> publisherService,
+                      AdvertisingService<Campaign> campaignService,
+                      AdvertisingService<Advertiser> advertiserService,
                       ObjectMapper objectMapper) {
+
         HelloWorld.userService = userService;
         HelloWorld.publisherService = publisherService;
+        HelloWorld.campaignService = campaignService;
+        HelloWorld.advertiserService = advertiserService;
         HelloWorld.objectMapper = objectMapper;
     }
 
@@ -59,6 +71,14 @@ public class HelloWorld {
         System.out.println("Hello World - Publishers");
         final Map<Integer,  Publisher> publishers = publisherService.selectAll(Publisher.class);
         publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
+
+        System.out.println("Hello World - Campaigns");
+        final Map<Integer, Campaign> campaigns = campaignService.selectAll(Campaign.class);
+        campaigns.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
+
+        System.out.println("Hello World - Advertiser");
+        final Map<Integer, Advertiser> advertisers = advertiserService.selectAll(Advertiser.class);
+        advertisers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
 
     }
 }

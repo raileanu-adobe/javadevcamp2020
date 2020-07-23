@@ -50,8 +50,8 @@ values
 
 insert into campaigns(id, json)
 values
-(null, '{name":"Females with age between 20 & 30, interested in SPORTS","startTime":1571673800000,"endTime":1576944200000,"target":{"gender":"FEMALE","interests":["SPORTS"],"minAge":20,"maxAge":30,"advertiserId": 2}}'),
-(null, '{"name":"Males with age between 20 & 50, interested in SHOES and SPORTS","startTime":1558454600000,"endTime":1576944200000,"target":{"gender":"MALE","interests":["SPORTS","SHOES"],"minAge":20,"maxAge":50, "advertiserId": 1}}');
+(null, '{"name":"Females with age between 20 & 30, interested in SPORTS","startTime":1571673800000,"endTime":1576944200000,"target":{"gender":"FEMALE","interests":["SPORTS"],"minAge":20,"maxAge":30},"advertiserId": 2}'),
+(null, '{"name":"Males with age between 20 & 50, interested in SHOES and SPORTS","startTime":1558454600000,"endTime":1576944200000,"target":{"gender":"MALE","interests":["SPORTS","SHOES"],"minAge":20,"maxAge":50}, "advertiserId": 1}');
 
 
 insert into publishers(id, json)
@@ -62,5 +62,5 @@ values
 
 insert into advertisers(id, json)
 values
-(null, '{"name":"Volvo","publishers":[1,2],"campaigns":[1]}'),
-(null, '{"name":"Zara","publishers":[1],"campaigns":[1, 2]}');
+(null, '{"name":"Volvo","publishers":[1,2]}'),
+(null, '{"name":"Zara","publishers":[1]}');
