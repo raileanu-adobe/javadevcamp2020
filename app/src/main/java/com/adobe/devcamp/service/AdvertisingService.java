@@ -69,6 +69,8 @@ public class AdvertisingService<T> {
             return objectMapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
             logger.error("Object {} couldn't be read", json);
+        } catch(Exception ex) {
+            logger.error("An error occured", ex);
         }
         return null;
     }
