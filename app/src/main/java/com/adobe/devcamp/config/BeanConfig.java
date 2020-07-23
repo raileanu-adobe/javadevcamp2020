@@ -33,9 +33,9 @@ public class BeanConfig {
     @Bean
     public DataSource dataSource(){
         final MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/javadevcamp");
-        dataSource.setUser("root");
-        dataSource.setPassword("");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/javadevcamp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        dataSource.setUser("jdc");
+        dataSource.setPassword("devcamp");
         return dataSource;
     }
 
