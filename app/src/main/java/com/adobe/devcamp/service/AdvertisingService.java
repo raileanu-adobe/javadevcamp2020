@@ -66,8 +66,10 @@ public class AdvertisingService<T> {
              return objectMapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
             logger.error("Object {} couldn't be deserialized", json);
+        } catch(Exception ex) {
+            logger.error("An error occured");
+            return null;
         }
-
         return null;
     }
 }

@@ -34,45 +34,8 @@ import java.util.Map;
 @SpringBootApplication
 public class HelloWorld {
 
-
-    private static AdvertisingService<User> userService;
-    private static AdvertisingService<Publisher> publisherService;
-    private static AdvertisingService<Campaign> campaignService;
-    private static AdvertisingService<Advertiser> advertiserService;
-    private static ObjectMapper objectMapper;
-
-    public HelloWorld(AdvertisingService<User> userService, AdvertisingService<Publisher> publisherService, AdvertisingService<Campaign> campaignService, AdvertisingService<Advertiser> advertiserService, ObjectMapper objectMapper)
-    {
-        HelloWorld.userService = userService;
-        HelloWorld.publisherService = publisherService;
-        HelloWorld.campaignService = campaignService;
-        HelloWorld.advertiserService = advertiserService;
-        HelloWorld.objectMapper = objectMapper;
-    }
-
-
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
         SpringApplication.run(HelloWorld.class);
-        System.out.println("Hello World");
-        final Map<Integer, User> users = userService.selectAll(User.class);
-        users.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
-
-        System.out.println("User with id: 1");
-        User user = userService.selectById(User.class, 1);
-        System.out.println(objectMapper.writeValueAsString(user));
-
-        System.out.println("Publishers:");
-        final Map<Integer, Publisher> publishers = publisherService.selectAll(Publisher.class);
-        publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
-
-        System.out.println("Campaigns:");
-        final Map<Integer, Campaign> campaigns = campaignService.selectAll(Campaign.class);
-        publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
-
-        System.out.println("Advertisers:");
-        final Map<Integer, Advertiser> advertiser = advertiserService.selectAll(Advertiser.class);
-        publishers.entrySet().forEach(entry->System.out.println(entry.getKey()+"-"+entry.getValue()));
     }
-
 
 }
