@@ -12,6 +12,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RestController
 public class UserController {
@@ -28,14 +31,15 @@ public class UserController {
 
     @GetMapping(path="/users", params="gender", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getUsersByGender(@RequestParam(name = "gender") String gender) {
-        ArrayList<User> users =  new ArrayList<>(userService.selectAll(User.class).values());
-        ArrayList<User> usersByGender = new ArrayList<User>();
-        for (User user: users) {
-            if(user.getProfile().getGender() == Gender.valueOf(gender)) {
-                usersByGender.add(user);
-            }
-        }
-        return usersByGender;
+        final ArrayList<User> users =  new ArrayList<>(userService.selectAll(User.class).values());
+
+//        Predicate<User> p = u -> u.getProfile().getGender() == Gender.valueOf(gender);
+//        p.test(user); //true/false
+        return users.stream()
+                .filter(u -> u.getProfile().getGender() == Gender.valueOf(gender))
+                .collect(Collectors.toList());
     }
+
+
 
 }
