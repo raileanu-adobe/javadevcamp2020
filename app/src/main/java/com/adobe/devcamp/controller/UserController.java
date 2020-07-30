@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class UserController {
@@ -29,15 +30,9 @@ public class UserController {
     @GetMapping(path="/users", params="gender", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getUsersByGender(@RequestParam(name = "gender") String gender) {
         final List<User> users = new ArrayList<>(userService.selectAll(User.class).values());
-
-        final List<User> usersByGender = new ArrayList<>();
-        users.forEach(user -> {
-            if (user.getProfile().getGender() == Gender.valueOf(gender)) {
-                usersByGender.add(user);
-            }
-        });
-
-        return usersByGender;
+        return users.stream()
+                .filter(u -> u.getProfile().getGender() == Gender.valueOf(gender))
+                .collect(Collectors.toList());
     }
 
 }
